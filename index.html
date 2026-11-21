@@ -3,48 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, viewport-fit=cover, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, viewport-fit=cover, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="format-detection" content="telephone=no">
     <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
-    <script id="touchZoomGuard">
-    (function () {
-        var multiTouch = false;
-        var active = { capture: true, passive: false };
-        var passive = { capture: true, passive: true };
-
-        function cancel(event) {
-            if (event.cancelable) event.preventDefault();
-        }
-        function start(event) {
-            if (event.touches.length === 1) multiTouch = false;
-            if (event.touches.length > 1) {
-                multiTouch = true;
-                cancel(event);
-            }
-        }
-        function move(event) {
-            var scaling = typeof event.scale === 'number' && Math.abs(event.scale - 1) > .001;
-            if (event.touches.length > 1) multiTouch = true;
-            if (multiTouch || scaling) cancel(event);
-        }
-        function finish(event) {
-            if (!event.touches.length) multiTouch = false;
-        }
-
-        // 한 손가락 스크롤은 유지하고 두 손가락 확대 제스처만 차단한다.
-        document.addEventListener('touchstart', start, active);
-        document.addEventListener('touchmove', move, active);
-        document.addEventListener('touchend', finish, passive);
-        document.addEventListener('touchcancel', finish, passive);
-        ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (name) {
-            document.addEventListener(name, cancel, active);
-        });
-        document.addEventListener('wheel', function (event) {
-            if (event.ctrlKey) cancel(event);
-        }, active);
-    })();
-    </script>
     <script>
     // 처음 열거나 새로고침할 때 이전 스크롤 위치와 전달된 섹션 주소를 초기화한다.
     (function () {
@@ -87,9 +49,9 @@
     </script>
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seya330.github.io/sejin-jeehee-wedding/">
+    <meta property="og:url" content="https://dev-eze.github.io/sejin-jeehee-wedding-zoom/">
     <meta property="og:title" content="조세진 ♥ 이지희 결혼합니다.">
-    <meta property="og:image" content="https://seya330.github.io/sejin-jeehee-wedding/assets/main.jpg?v=20261018-original-card">
+    <meta property="og:image" content="https://dev-eze.github.io/sejin-jeehee-wedding-zoom/assets/main.jpg?v=20261018-original-card">
     <meta property="og:description" content="2027년 1월 9일 토요일 오후 6시">
     <meta property="og:site_name" content="조세진 ♥ 이지희 결혼합니다.">
     <meta property="og:locale" content="ko_KR">
@@ -10604,7 +10566,7 @@ em.space {
 .gift_copy_status{min-height:22px;margin-top:14px;font-size:12px;line-height:1.8;color:#68625e;text-align:center}
 @media(max-width:350px){.section_guest_note{padding-left:20px;padding-right:20px}.guest_note_copy{font-size:14px}.gift_account_card{padding:18px 14px}.gift_account_number{font-size:16px}.gift_copy_button{padding:8px}}
 /* 크림 천에 걸어 둔 사진첩 */
-.photo_board{container-type:inline-size;aspect-ratio:400/640;position:relative;overflow:hidden;isolation:isolate;background:#f3eadb;touch-action:pan-x pan-y}
+.photo_board{container-type:inline-size;aspect-ratio:400/640;position:relative;overflow:hidden;isolation:isolate;background:#f3eadb;touch-action:pan-x pan-y pinch-zoom}
 .photo_cloth{position:absolute;inset:0;z-index:-3;background:url("assets/cream-linen.webp") center/cover no-repeat}
 .photo_illumination{position:absolute;inset:0;z-index:-2;background:radial-gradient(ellipse at 15% 30%,#fffbef80,transparent 70%),linear-gradient(130deg,#fff9ef48,transparent 50%,#c8a17b0a);pointer-events:none}
 .photo_board::after{content:"";position:absolute;inset:0;z-index:9;box-shadow:inset 0 0 65px #a67d3c0d;pointer-events:none}
@@ -10623,7 +10585,7 @@ em.space {
 .photo_twine{position:absolute;left:-2.5%;top:34.3%;width:105%;height:6.2%;z-index:1;background:url("assets/jute-twine.webp") center/100% 100% no-repeat;filter:drop-shadow(.2cqw .65cqw .35cqw #71503245);pointer-events:none}
 .photo_bulb{position:absolute;width:1.2cqw;height:2.3cqw;z-index:2;transform:translate(-50%,-30%) rotate(var(--tilt,0deg));border-radius:45% 45% 50% 50%;background:linear-gradient(90deg,#fff3bc,#fffef0 45%,#ffe5a0);box-shadow:0 0 1.3cqw .3cqw #ffe6a5c4,0 0 4cqw 1.5cqw #ffc66135,0 0 10cqw 2.5cqw #ffcf6024;pointer-events:none}
 .photo_bulb::before{content:"";position:absolute;top:-.6cqw;left:12%;width:76%;height:.8cqw;border-radius:.2cqw;background:linear-gradient(90deg,#b4a37b,#e6d7b0,#b29e72)}
-.photo_scroll{position:absolute;inset:0;z-index:3;display:flex;gap:0;margin:0;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;touch-action:pan-x pan-y;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.photo_scroll{position:absolute;inset:0;z-index:3;display:flex;gap:0;margin:0;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;touch-action:pan-x pan-y pinch-zoom;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 .photo_scroll::-webkit-scrollbar{display:none}
 .photo_scroll:focus-visible{outline:2px solid var(--invitation-red);outline-offset:-6px}
 .photo_scroll .photo_item{position:relative;flex:0 0 100%;width:100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always;perspective:700px}
@@ -10696,9 +10658,10 @@ em.space {
 /* 움직임을 줄인 환경에서는 다 쓴 글씨를 바로 보여 주고 조금 일찍 사라진다 */
 @media (prefers-reduced-motion:reduce){.intro_write mask path{animation:none;stroke-dashoffset:0!important}.intro_write mask rect{animation:none;opacity:1}.intro_overlay{animation-delay:1.5s}}
 </style>
+    <link rel="stylesheet" href="assets/photo-viewer.css">
 </head>
 
-<body style="touch-action : pan-x pan-y;">
+<body style="touch-action : auto;">
 <!-- 첫 화면 오버레이. CSS 는 마지막 <style> 블록의 .intro_overlay. #user_wrap 의 overflow 에 잘리지 않게 바깥에 둔다.
      안의 SVG 는 tools/intro_write/make.sh 가 만든다. 손으로 고치지 않고 다시 만들어 통째로 바꾼다. -->
 <div class="intro_overlay" aria-hidden="true">
@@ -10778,7 +10741,7 @@ M337.7 297.2Q333.3 297.2 331.4 293.9Q329.5 290.5 329.5 285.6Q329.5 281.6 330.6 2
 
         <input type="hidden" id="invitationId" value="14816"/>
         <input type="hidden" id="invitationUrl" value="s5lajly1m3"/>
-        <canvas id="canvas" style="touch-action : pan-x pan-y;"></canvas>
+        <canvas id="canvas" style="touch-action : auto;"></canvas>
 
         <div class="user_music_box preview_resize" var="useBgm">
             <p style="display: none">배경음악이 준비 되었습니다.</p>
@@ -12868,7 +12831,7 @@ M337.7 297.2Q333.3 297.2 331.4 293.9Q329.5 290.5 329.5 285.6Q329.5 281.6 330.6 2
 		
 
 		<!-- 웨딩 인터뷰 -->
-		<div class="modal_dimmed preview_resize modal_interview" style="touch-action : pan-x pan-y;">
+		<div class="modal_dimmed preview_resize modal_interview" style="touch-action : auto;">
 			<div class="m_wrap">
 				<div class="modal_title">
 					<h2>
@@ -12917,7 +12880,7 @@ M337.7 297.2Q333.3 297.2 331.4 293.9Q329.5 290.5 329.5 285.6Q329.5 281.6 330.6 2
 
 		<!-- 갤러리 -->
 		
-			<div class="modal_dimmed preview_resize modal_photo" style="touch-action : pan-x pan-y;">
+			<div class="modal_dimmed preview_resize modal_photo" style="touch-action : auto;">
 				<div class="m_wrap">
 					<div class="slide_wrap swiper">
 						<div class="slide_box swiper-wrapper">
@@ -12950,7 +12913,7 @@ M337.7 297.2Q333.3 297.2 331.4 293.9Q329.5 290.5 329.5 285.6Q329.5 281.6 330.6 2
 		
 
 		<!-- 참석여부 전달 -->
-		<div class="modal_dimmed preview_resize modal_rsvp" style="touch-action : pan-x pan-y;">
+		<div class="modal_dimmed preview_resize modal_rsvp" style="touch-action : auto;">
 			<div class="m_wrap">
 				<div class="modal_title">
 					<h2 var="rsvpSubject">참석 여부 전달</h2>
@@ -13073,6 +13036,7 @@ M337.7 297.2Q333.3 297.2 331.4 293.9Q329.5 290.5 329.5 285.6Q329.5 281.6 330.6 2
     </div>
 </div>
 
+<script src="assets/photo-viewer.js" defer></script>
 </body>
 
 
@@ -13375,6 +13339,12 @@ const a89_0x729279=a89_0x1268;(function(_0x1c2c91,_0x4357cd){const _0x147be4=a89
             });
             image.src = source;
             imageBox.appendChild(image);
+            var openButton = document.createElement('button');
+            openButton.type = 'button';
+            openButton.className = 'photo_open';
+            openButton.setAttribute('aria-label', '사진 크게 보기: ' + image.alt);
+            openButton.setAttribute('aria-haspopup', 'dialog');
+            imageBox.appendChild(openButton);
             paper.appendChild(imageBox);
             var clip = document.createElement('span');
             clip.className = 'photo_clip';
@@ -13439,25 +13409,34 @@ const a89_0x729279=a89_0x1268;(function(_0x1c2c91,_0x4357cd){const _0x147be4=a89
     scroll.addEventListener('dragstart', function (e) { e.preventDefault(); });
     scroll.addEventListener('dblclick', function (e) { e.preventDefault(); });
 
-    var down = false, startX = 0, startLeft = 0;
+    var down = false, startX = 0, startLeft = 0, dragged = false, ignoreClickUntil = 0;
     scroll.addEventListener('pointerdown', function (e) {
         if (e.pointerType !== 'mouse' || e.button !== 0) return;
         down = true;
+        dragged = false;
         startX = e.clientX;
         startLeft = scroll.scrollLeft;
         scroll.classList.add('is_dragging');
     });
     window.addEventListener('pointermove', function (e) {
         if (!down) return;
+        if (Math.abs(e.clientX - startX) > 8) dragged = true;
         scroll.scrollLeft = startLeft - (e.clientX - startX);
         e.preventDefault();
     });
     function endDrag() {
         if (!down) return;
         down = false;
+        if (dragged) ignoreClickUntil = performance.now() + 300;
         scroll.classList.remove('is_dragging');
         go(Math.round(scroll.scrollLeft / (scroll.clientWidth || 1)));
     }
+    scroll.addEventListener('click', function (event) {
+        if (performance.now() < ignoreClickUntil) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+        }
+    }, true);
     window.addEventListener('pointerup', endDrag);
     window.addEventListener('pointercancel', endDrag);
     window.addEventListener('blur', endDrag);
