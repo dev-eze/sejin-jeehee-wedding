@@ -1,0 +1,28 @@
+// update-photos.sh 가 만드는 파일입니다. 직접 고치지 않습니다.
+window.WEDDING_PHOTOS = [
+  "00-hands.jpg",
+  "01-wedding.jpg",
+  "02-wedding.jpg",
+  "05-wedding.jpg",
+  "06-wedding.jpg",
+  "07-wedding.jpg",
+  "09-wedding.jpg",
+  "10-wedding.jpg",
+  "11-wedding.jpg",
+  "12-wedding.jpg",
+  "13-table.jpg",
+  "14-groom-sleeve.jpg",
+  "15-prayer-pair-left.jpg",
+  "15-prayer-pair-right.jpg",
+  "16-prayer-pair-left.jpg",
+  "16-prayer-pair-right.jpg",
+  "17-bride-bouquet.jpg",
+  "18-garden-seated.jpg",
+  "19-garden-standing.jpg",
+  "20-garden-bride.jpg",
+  "21-garden-bride-front.jpg",
+  "22-garden-pair-left.jpg",
+  "23-garden-pair-right.jpg",
+  "24-garden-collage.jpg",
+  "25-studio-white.jpg"
+];
